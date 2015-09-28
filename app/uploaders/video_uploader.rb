@@ -1,10 +1,14 @@
 class VideoUploader < CarrierWave::Uploader::Base
+  include CarrierWave::RMagick
 
   storage :file
 
   def store_dir
-    "uploads/#{video.class.to_s.underscore}/#{mounted_as}/#{video.id}"
+  
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-
+  def extension_white_list
+    %w(pdf doc htm html docx png pdf)
+  end
 end
