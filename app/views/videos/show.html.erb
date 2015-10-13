@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
+
  <%= @video.name.url  %>
 
-
+ <%= video_tag(@video.name.url, controls: true, autobuffer: true ) %>
 <%= link_to 'Back', videos_path %>
